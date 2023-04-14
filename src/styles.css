@@ -17,11 +17,22 @@ body{
     flex-direction: column;
 }
 
+/* main */
+main{
+    margin: 30px;
+}
+
+.title{
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 10px;
+    margin-bottom: 20px;
+    font-size: larger;
+    font-weight: 800;
+    color: var(--primary-color);
+}
 /* table style */
-
-
 table {
-    width: 100%;
+    width: 90%;
     margin-left: 10px;
     color: black;
 }
@@ -46,8 +57,9 @@ th img {
 
 /* fieldset */
 fieldset {
+    width: 90%;
     display: none;
-    grid: 1fr / 70% 30%;
+    grid: 1fr / 70% 20%;
     border: 3px solid var(--border-color);
     color: var(--primary-color);
     margin-top: 20px;

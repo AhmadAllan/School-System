@@ -7,6 +7,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ParentsComponent } from './components/parents/parents.component';
+import { TeachersComponent } from './components/teachers/teachers.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ParentsComponent } from './components/parents/parents.component';
     NavComponent,
     FooterComponent,
     DashboardComponent,
-    ParentsComponent
+    ParentsComponent,
+    TeachersComponent
   ],
   imports: [
     BrowserModule,

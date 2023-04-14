@@ -1,0 +1,10 @@
+form {
+    display: grid;
+    grid: auto / 1fr 1fr;
+    row-gap: 0;
+}
+
+form div > input{
+    width: 90%;
+    height: 30px;
+}
