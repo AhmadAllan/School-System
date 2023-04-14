@@ -1,0 +1,12 @@
+main{
+    margin: 30px;
+}
+
+.title{
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 10px;
+    margin-bottom: 20px;
+    font-size: larger;
+    font-weight: 800;
+    color: var(--primary-color);
+}
