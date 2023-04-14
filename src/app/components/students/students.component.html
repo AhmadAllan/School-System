@@ -1,0 +1,126 @@
+<main>
+    <div class="title">
+        <p>Students</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Grade</th>
+                <th>Class</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>ahmad</td>
+                <td>allan</td>
+                <td>6</td>
+                <td>a</td>
+                <th>
+                    <div class="action">
+                        <button class="btnTable"> <img src="./assets/icons/delete.png" alt="Delete"> Delete</button>
+                        <button class="btnTable" (click)="onToggle('more')">more <img src="./assets/icons/more.png" alt="More"></button>
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btnConfig" type="button" (click)="onToggle('add')">+ Add</button>
+    <!-- add field -->
+    <fieldset class="add" id="add" *ngIf="isVisiableAdd" [ngStyle]="{'display': 'grid'}">
+        <legend>Add person</legend>
+        <form>
+            <div class="firstName">
+                <label>First name</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="lastName">
+                <label>Last name</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="grade">
+                <label>Grade</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="class">
+                <label>Class</label>
+                <br>
+                <input type="text">
+            </div>
+        </form>
+
+        <div class="config">
+            <img src="./assets/icons/student-add.png" alt="">
+            <button class="btnConfig" type="submit"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" type="button">X Cancel</button>
+        </div>
+    </fieldset>
+    <!-- More field -->
+    <fieldset class="more" id="add" *ngIf="isVisiableMore" [ngStyle]="{'display': 'grid'}">
+        <legend>More info about ahmad</legend>
+        <form>
+            <h2>Child info</h2>
+
+            <div class="firstName">
+                <label>First name:</label>
+                <h3>Ahmad</h3>
+            </div>
+
+            <div class="lastName">
+                <label>Last name:</label>
+                <h3>Allan</h3>
+            </div>
+
+            <div class="grade">
+                <label>Grade:</label>
+                <h3>10</h3>
+            </div>
+
+            <div class="class">
+                <label>Class:</label>
+                <h3>A</h3>
+            </div>
+            
+            <h2>Parent info:</h2>
+
+            <div class="father">
+                <label>Father:</label>
+                <h3>khild allan</h3>
+            </div>
+
+            <div class="mother">
+                <label>Mother:</label>
+                <h3>Assia Ahmad</h3>
+            </div>
+
+            <div class="address">
+                <label>address:</label>
+                <h3>Amman, Jordan</h3>
+            </div>
+
+            <div class="phone">
+                <label>Phone number:</label>
+                <h3>0784567890</h3>
+            </div>
+
+        </form>
+
+        <div class="config">
+            <img src="./assets/icons/student-add.png" alt="">
+            <button class="btnConfig" type="submit"><img src="./assets/icons/editing.png" alt="Edit"> Edit</button>
+            <button class="btnConfig" type="button"><img src="./assets/icons/save.png" alt="Save"> Save</button>
+        </div>
+    </fieldset>
+</main>

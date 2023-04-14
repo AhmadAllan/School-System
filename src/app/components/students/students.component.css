@@ -1,0 +1,43 @@
+th {
+    width: 250px;
+}
+
+.add form {
+    display: grid;
+    grid: 100px 100px / 1fr 1fr;
+    row-gap: 0;
+}
+
+.add form div > input{
+    width: 90%;
+    height: 30px;
+}
+
+.more{
+    display: none;
+}
+.more form {
+    display: grid;
+    grid: 50px 100px 50px 100px / 1fr 1fr 1fr 1fr;
+    row-gap: 20px;
+}
+
+.more form div > input{
+    width: 90%;
+    height: 30px;
+}
+
+.more form h3 {
+    grid-column: 1 / 5;
+}
+
+.more form h2 {
+    grid-column: 1 / 5;
+    color: black;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
