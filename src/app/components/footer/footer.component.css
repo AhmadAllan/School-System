@@ -1,0 +1,19 @@
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer .contact {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
