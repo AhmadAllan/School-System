@@ -10,6 +10,8 @@ import { ParentsComponent } from './components/parents/parents.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { StudentsComponent } from './components/students/students.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginModule } from './login/login.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AdminComponent } from './components/admin/admin.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

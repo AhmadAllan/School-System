@@ -5,14 +5,15 @@ import { ParentsComponent } from './components/parents/parents.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { StudentsComponent } from './components/students/students.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './login/components/login/login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'parents', component: ParentsComponent},
   {path: 'teachers', component: TeachersComponent},
   {path: 'students', component: StudentsComponent},
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin', component: AdminComponent},
+
 ];
 
 @NgModule({
