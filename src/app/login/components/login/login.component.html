@@ -3,18 +3,21 @@
         <img src="./assets/icons/login.png" alt="Login">
         <p>Login in to your account</p>
     </div>
-        <form class="login" accept="./dashboard.html">
+        <form [formGroup]="form" class="login">
+            <p class="error-message" style="font-size: large;" *ngIf="!isValid">Please fill the your info</p>
             <p>Enter your user name and password</p>
             <div class="userName">
-                <label for="userName">User name</label>
+                <label for="userName" formControlName="email">User name</label>
                 <br>
-                <input type="text" id="userName">
+                <input [ngClass]="{'error': emailValidation || !isValid}" type="text" id="userName" placeholder="Your user name" formControlName="email">
+                <p class="error-message" *ngIf="emailValidation || !isValid">please enter your user name</p>
             </div>
             <div class="pass">
                 <label for="pass">Password</label>
                 <br>
-                <input type="text" id="pass">
+                <input [ngClass]="{'error': passValidation || !isValid}" type="password" id="pass" placeholder="your password" formControlName="pass">
+                <p class="error-message" *ngIf="passValidation || !isValid">please enter your user name</p>
             </div>
-            <button class="btnConfig" id="btnlogin" routerLink="/dashboard" ><img src="./assets/icons/login-btn.png" alt="login"> Login</button>
+            <button class="btnConfig" id="btnlogin" (click)="onClick()"><img src="./assets/icons/login-btn.png" alt="login"> Login</button>
         </form>             
 </div>

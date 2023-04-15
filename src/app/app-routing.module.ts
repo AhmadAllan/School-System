@@ -8,6 +8,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './login/components/login/login.component';
 
 const routes: Routes = [
+  {path: '' ,redirectTo: 'login', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'parents', component: ParentsComponent},
   {path: 'teachers', component: TeachersComponent},

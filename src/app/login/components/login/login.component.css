@@ -51,6 +51,11 @@
 .login button:hover{
     cursor: pointer;
 }
+
 button img {
     width: 20px;
+}
+
+.login input.error {
+    border: 2px solid red;
 }

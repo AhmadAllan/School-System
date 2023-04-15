@@ -1,5 +1,5 @@
-import { AfterContentChecked, AfterContentInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { AfterContentChecked, Component} from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -15,8 +15,6 @@ export class AppComponent implements AfterContentChecked{
 
 
   ngAfterContentChecked(): void {
-    this.url = this.router.url.toString();
-    console.log(this.url);
-    
+    this.url = this.router.url.toString();   
   }
 }
