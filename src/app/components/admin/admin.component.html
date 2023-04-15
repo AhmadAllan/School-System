@@ -1,0 +1,94 @@
+<main>
+    <div class="title">
+        <p>Parent</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Phone number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>User name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>ahmad</td>
+                <td>allan</td>
+                <td>0784567890</td>
+                <td>aaa200265@gmail.com</td>
+                <td>amman</td>
+                <td>root</td>
+                <th><button class="btnTable"> <img src="./assets/icons/delete.png" alt="Delete"> Delete</button></th>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <button class="btnConfig" type="button" (click)="onToggle()">+ Add</button>
+
+    <fieldset class="add" id="add" *ngIf="isVisiable" [ngStyle]="{'display': 'grid'}">
+        <legend>Add person</legend>
+        <form>
+            <div class="firstName">
+                <label>First name</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="lastName">
+                <label>Last name</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="userName">
+                <label>User name</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="phoneNumber">
+                <label>Phone number</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="email">
+                <label>Email</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="address">
+                <label>Address</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="password">
+                <label>Password</label>
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="confirm">
+                <label>Confirm password</label>
+                <br>
+                <input type="text">
+            </div>
+        </form>
+
+        <div class="config">
+            <img src="./assets/icons/admin-add.png" alt="">
+            <button class="btnConfig" type="submit"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" type="button"><span style="color: black;">X</span>Cancel</button>
+        </div>
+    </fieldset>
+</main>

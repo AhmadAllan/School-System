@@ -13,8 +13,6 @@ html, body {
 
 body{
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* main */
@@ -32,7 +30,7 @@ main{
 }
 /* table style */
 table {
-    width: 90%;
+    width: 100%;
     margin-left: 10px;
     color: black;
 }
@@ -51,6 +49,12 @@ tbody tr > * {
     padding: 5px;
 }
 
+tbody tr th:last-child{
+    display: flex;
+    justify-content: center;
+    border: 1px;
+}
+
 th img {
     width: 20px;
 }
@@ -59,11 +63,10 @@ th img {
 fieldset {
     width: 90%;
     display: none;
-    grid: 1fr / 70% 20%;
+    grid: 1fr / 3fr 1fr;
     border: 3px solid var(--border-color);
     color: var(--primary-color);
     margin-top: 20px;
-    margin-left: 10px;
 }
 
 fieldset legend {
@@ -74,11 +77,10 @@ fieldset legend {
 .formBox {
     display: grid;
     grid: 100px 100px / 1fr 1fr;
-    row-gap: 0;
 }
 
 .formBox div > input{
-    width: 90%;
+    width: 300px;
     height: 30px;
 }
 
@@ -100,9 +102,7 @@ fieldset legend {
 }
 
 .config button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline;
     width: 130px;
 }
 
@@ -139,3 +139,17 @@ button:hover{
     border: none;
 }
 
+/* Footer */
+
+
+app-root {
+    position: absolute;
+    display: block;
+    position: relative;
+    padding-bottom: 95px;
+}
+
+footer {
+    position: relative;
+
+}

@@ -4,8 +4,8 @@ th {
 
 .add form {
     display: grid;
-    grid: 100px 100px / 1fr 1fr;
-    row-gap: 0;
+    grid: auto / 1fr 1fr;
+    row-gap: 10px;
 }
 
 .add form div > input{

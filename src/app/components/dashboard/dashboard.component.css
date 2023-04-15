@@ -25,6 +25,7 @@ main{
     width: 30%;
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--secondary-color);
+    border-radius: 5px;
     margin-left: 10px;
 }
 
