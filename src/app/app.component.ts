@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 
@@ -8,18 +8,15 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterContentInit{
+export class AppComponent implements AfterContentChecked{
   title: String = 'School-System';
   url: string = '';
   constructor(private router: Router) { }
 
 
-  ngAfterContentInit(): void {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.url = event.url;
-        console.log(this.url);
-      }
-    });
+  ngAfterContentChecked(): void {
+    this.url = this.router.url.toString();
+    console.log(this.url);
+    
   }
 }

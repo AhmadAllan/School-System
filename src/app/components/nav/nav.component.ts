@@ -1,23 +1,20 @@
 import { Token } from '@angular/compiler';
-import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterContentChecked, AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements  AfterContentChecked {
 
-  activeDivId: string = localStorage.getItem('activeDivId') || 'dashboard';
+  constructor (private router: Router) {}
+  activeNav: string ='';
 
-  ngOnInit(): void {
-    // Initialize the activeDivId value from localStorage
-    this.activeDivId = localStorage.getItem('activeDivId') || 'dashboard';
-  }
 
-  setActive(id: string) {
-    this.activeDivId = id;
-    localStorage.setItem('activeDivId', id);
+  ngAfterContentChecked() {
+    this.activeNav = this.router.url.toString();
+    console.log(this.activeNav);
   }
 }

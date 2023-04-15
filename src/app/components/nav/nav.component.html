@@ -1,21 +1,21 @@
 <nav>
-    <div class="navElement" routerLink="/dashboard" (click)="setActive('dashboard')" [ngClass]="{'active': activeDivId === 'dashboard'}">
+    <div class="navElement" routerLink="/dashboard" [ngClass]="{'active': activeNav === '/dashboard'}">
         <img src="./assets/icons/dashboard.png" alt="Dashboard">
         <p>Dashboard</p>
    </div>
-   <div class="navElement" routerLink="/parents" (click)="setActive('parent')" [ngClass]="{'active': activeDivId === 'parent'}">
+   <div class="navElement" routerLink="/parents" [ngClass]="{'active': activeNav === '/parents'}">
         <img src="./assets/icons/parent.png" alt="Parent">
         <p>Parents</p>
    </div>
-   <div class="navElement" routerLink="/teachers" (click)="setActive('teacher')" [ngClass]="{'active': activeDivId === 'teacher'}">
+   <div class="navElement" routerLink="/teachers" [ngClass]="{'active': activeNav === '/teachers'}">
         <img src="./assets/icons/teacher.png" alt="Teacher">
         <p>Teachers</p>
    </div>
-   <div class="navElement" routerLink="/students" (click)="setActive('student')" [ngClass]="{'active': activeDivId === 'student'}">
+   <div class="navElement" routerLink="/students" [ngClass]="{'active': activeNav === '/students'}">
         <img src="./assets/icons/student.png" alt="Student">
         <p>Students</p>
    </div>
-   <div class="navElement" routerLink="/admin" (click)="setActive('admin')" [ngClass]="{'active': activeDivId === 'admin'}">
+   <div class="navElement" routerLink="/admin" [ngClass]="{'active': activeNav === '/admin'}">
         <img src="./assets/icons/admin.png" alt="Admin">
         <p>Admin</p>
    </div>
