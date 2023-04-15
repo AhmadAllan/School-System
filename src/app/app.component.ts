@@ -1,14 +1,25 @@
-import { Component, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap, RouterOutlet } from '@angular/router';
+import { AfterContentInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'School-System';
-  @ViewChild('routerOutlet', { static: true }) routerOutlet!: RouterOutlet;
+export class AppComponent implements AfterContentInit{
+  title: String = 'School-System';
+  url: string = '';
+  constructor(private router: Router) { }
 
-  hideComponent: boolean = false
+
+  ngAfterContentInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.url = event.url;
+        console.log(this.url);
+      }
+    });
+  }
 }
