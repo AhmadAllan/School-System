@@ -15,6 +15,5 @@ export class NavComponent implements  AfterContentChecked {
 
   ngAfterContentChecked() {
     this.activeNav = this.router.url.toString();
-    console.log(this.activeNav);
   }
 }

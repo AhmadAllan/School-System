@@ -35,36 +35,41 @@
     <!-- add field -->
     <fieldset class="add" id="add" *ngIf="isVisiableAdd" [ngStyle]="{'display': 'grid'}">
         <legend>Add person</legend>
-        <form>
+        <form class="formBox" [formGroup]="form">
+            <p class="error-message" style="font-size: large;" *ngIf="!isValid">Please fill the the form</p>
             <div class="firstName">
                 <label>First name</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': firstNameValid || !isValid}" formControlName="firstName">
+                <p class="error-message" *ngIf="firstNameValid || !isValid" >please enter the student first name</p>
             </div>
 
             <div class="lastName">
                 <label>Last name</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': lastNameValid || !isValid}" formControlName="lastName">
+                <p class="error-message" *ngIf="lastNameValid || !isValid">please enter the student last name</p>
             </div>
 
             <div class="grade">
                 <label>Grade</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': gradeValid || !isValid}" formControlName="grade">
+                <p class="error-message" *ngIf="gradeValid || !isValid">please enter the student gradecorrect</p>
             </div>
 
             <div class="class">
                 <label>Class</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': classValid || !isValid}" formControlName="class">
+                <p class="error-message" *ngIf="classValid || !isValid">please enter the student class</p>
             </div>
         </form>
 
         <div class="config">
             <img src="./assets/icons/student-add.png" alt="">
-            <button class="btnConfig" type="submit"><img src="./assets/icons/save.png" alt="save"> Save</button>
-            <button class="btnConfig" type="button">X Cancel</button>
+            <button class="btnConfig" (click)="onClick('add')"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" (click)="onClick('cancel')">x Cancel</button>
         </div>
     </fieldset>
     <!-- More field -->

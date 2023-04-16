@@ -35,60 +35,69 @@
 
     <fieldset class="add" id="add" *ngIf="isVisiable" [ngStyle]="{'display': 'grid'}">
         <legend>Add person</legend>
-        <form>
+        <form class="formBox" [formGroup]="form">
+            <p class="error-message" style="font-size: large;" *ngIf="!isValid">Please fill the the form</p>
             <div class="firstName">
                 <label>First name</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': firstNameValid || !isValid}" formControlName="firstName">
+                <p class="error-message" *ngIf="firstNameValid || !isValid" >please enter your first name</p>
             </div>
 
             <div class="lastName">
                 <label>Last name</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': lastNameValid || !isValid}" formControlName="lastName">
+                <p class="error-message" *ngIf="lastNameValid || !isValid">please enter your last name</p>
             </div>
 
             <div class="userName">
                 <label>User name</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': userNameValid || !isValid}" formControlName="userName">
+                <p class="error-message" *ngIf="userNameValid || !isValid">please enter your user name</p>
             </div>
 
             <div class="phoneNumber">
                 <label>Phone number</label>
                 <br>
-                <input type="text">
+                <input type="text" placeholder="079XXXXXXX" [ngClass]="{'error': phoneValid || !isValid}" formControlName="phone">
+                <p class="error-message" *ngIf="phoneValid || !isValid">please enter your phone number correct</p>
             </div>
 
             <div class="email">
                 <label>Email</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': emailValid || !isValid}" formControlName="email">
+                <p class="error-message" *ngIf="emailValid || !isValid">please enter your email</p>
             </div>
 
             <div class="address">
                 <label>Address</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': addressValid || !isValid}" formControlName="address">
+                <p class="error-message" *ngIf="addressValid || !isValid">please enter your address</p>
             </div>
 
             <div class="password">
                 <label>Password</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': passwordVaild || !isValid}" formControlName="password">
+                <p class="error-message" *ngIf="passwordVaild || !isValid">please enter your password</p>
             </div>
 
             <div class="confirm">
                 <label>Confirm password</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': passConfirmValid || !isValid}" formControlName="passConfirm">
+                <p class="error-message" *ngIf="passConfirmValid || !isValid">this does not match your entered password</p>
             </div>
         </form>
 
         <div class="config">
             <img src="./assets/icons/admin-add.png" alt="">
-            <button class="btnConfig" type="submit"><img src="./assets/icons/save.png" alt="save"> Save</button>
-            <button class="btnConfig" type="button"><span style="color: black;">X</span>Cancel</button>
+            <button class="btnConfig" (click)="onClick('add')"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" (click)="onClick('cancel')">x Cancel</button>
         </div>
     </fieldset>
 </main>

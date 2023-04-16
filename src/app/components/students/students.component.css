@@ -2,16 +2,6 @@ th {
     width: 250px;
 }
 
-.add form {
-    display: grid;
-    grid: auto / 1fr 1fr;
-    row-gap: 10px;
-}
-
-.add form div > input{
-    width: 90%;
-    height: 30px;
-}
 
 .more{
     display: none;

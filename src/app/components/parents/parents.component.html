@@ -30,36 +30,41 @@
 
     <fieldset class="add" id="add" *ngIf="isVisiable" [ngStyle]="{'display': 'grid'}">
         <legend>Add person</legend>
-        <form class="formBox">
+        <form class="formBox" [formGroup]="form">
+            <p class="error-message" style="font-size: large;" *ngIf="!isValid">Please fill the the form</p>
             <div class="firstName">
                 <label>First name</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': firstNameValid || !isValid}" formControlName="firstName">
+                <p class="error-message" *ngIf="firstNameValid || !isValid" >please enter the parent first name</p>
             </div>
 
             <div class="lastName">
                 <label>Last name</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': lastNameValid || !isValid}" formControlName="lastName">
+                <p class="error-message" *ngIf="lastNameValid || !isValid">please enter the parent last name</p>
             </div>
 
             <div class="phoneNumber">
                 <label>Phone number</label>
                 <br>
-                <input type="text">
+                <input type="text" placeholder="079XXXXXXX" [ngClass]="{'error': phoneValid || !isValid}" formControlName="phone">
+                <p class="error-message" *ngIf="phoneValid || !isValid">please enter the parent phone number correct</p>
             </div>
 
             <div class="address">
                 <label>Address</label>
                 <br>
-                <input type="text">
+                <input type="text" [ngClass]="{'error': addressValid || !isValid}" formControlName="address">
+                <p class="error-message" *ngIf="addressValid || !isValid">please enter the parent address</p>
             </div>
         </form>
 
         <div class="config">
             <img src="./assets/icons/parent-add.png" alt="">
-            <button class="btnConfig" type="submit"><img src="./assets/icons/save.png" alt="save"> Save</button>
-            <button class="btnConfig" type="button">X Cancel</button>
+            <button class="btnConfig" (click)="onClick('add')"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" (click)="onClick('cancel')">x Cancel</button>
         </div>
     </fieldset>
 </main>
