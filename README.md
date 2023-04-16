@@ -34,9 +34,9 @@ for now:
 - [ ] fix the behavior of the form validation, only god know why this madnees happened when i press the form submit button
 
 ## the outcomes in the end:
-1- can handle make a website from scratch\
-2- can style with out problem\
-3- work easy with angular\
+1- handle making a website from scratch\
+2- styling with out problem\
+3- dealing with Angular Easily\
 4- level up your skills in ui/ux
 
 ## currently work on
