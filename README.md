@@ -41,4 +41,4 @@ for now:
 
 ## currently work on
 - Transform the project to angular
-# Live preview -
+# Live preview - https://ahmadallan.github.io/School-System/
