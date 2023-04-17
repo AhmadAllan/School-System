@@ -32,10 +32,9 @@ main{
 table {
     width: 100%;
     margin-left: 10px;
-    color: black;
 }
 
-table,td,th {
+table, tr, th, td {
     border: 2px solid var(--table-border-color);
     border-collapse: collapse;
     color: var(--table-text-color);

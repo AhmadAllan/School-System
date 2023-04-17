@@ -1,0 +1,24 @@
+{
+    "admins": [
+        {
+            "id": 1,
+            "firstName": "ahmad",
+            "lastName": "allan",
+            "userName": "ahmad",
+            "phoneNumber": "0781015580" ,
+            "email": "root@root.com",
+            "address": "amman",
+            "password": "123456"
+        },
+        {
+            "id": 2,
+            "firstName": "khild",
+            "lastName": "ali",
+            "userName": "khild",
+            "phoneNumber": "0774567890" ,
+            "email": "admin@root.com",
+            "address": "amman",
+            "password": "123456"
+        }
+    ]
+}

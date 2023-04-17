@@ -1,5 +1,8 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Admin } from 'src/app/interfaces/Admin';
+import { AdminService } from 'src/app/services/admin.service';
+import { CustonValidationService } from 'src/app/services/custon-validation.service';
 
 @Component({
   selector: 'app-admin',
@@ -10,8 +13,20 @@ export class AdminComponent implements OnInit {
   isVisiable: boolean = false;
   isSubmitted: boolean = false;
   form!: FormGroup;
+  admins: Admin[] = [];
+  admin: Admin = {
+    id: this.admins.length+1,
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    phoneNumber: undefined,
+    address: '',
+    password: ''
+  }
+
   
-  constructor (private formBuilder: FormBuilder) {}
+  constructor (private formBuilder: FormBuilder,private customVadlidator: CustonValidationService, private adminService: AdminService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -52,8 +67,15 @@ export class AdminComponent implements OnInit {
           Validators.required,
         ],
       ],
+    }, {
+      validator: this.customVadlidator.passwordMatchValidator("password","passwordConfirm")
     })
+
+    this.adminService.getAdmins().subscribe(admins => this.admins = admins)    
   }
+
+
+
 
   get firstNameValid(){
     return this.form.get('firstName')?.invalid && (this.form.get('firstName')?.touched || this.form.get('firstName')?.dirty || this.isSubmitted);
@@ -87,6 +109,8 @@ export class AdminComponent implements OnInit {
     return this.form.get('passwordConfirm')?.invalid && (this.form.get('passwordConfirm')?.touched || this.form.get('passwordConfirm')?.dirty || this.isSubmitted);
   }
 
+
+  // to controll the view of element
   onToggle(): void {
     this.isVisiable = !this.isVisiable;
   }
@@ -105,5 +129,19 @@ export class AdminComponent implements OnInit {
       this.form.reset();
       this.isSubmitted = false;
     }
+  }
+
+  addAdmin() {
+    this.admin
+    console.log(this.admin.firstName);
+    
+    this.adminService.addAdmin(this.admin).subscribe(admin => this.admins.push(admin))
+    if(this.form.valid){
+      alert('user added successfully');
+      this.isVisiable = false;
+      this.form.reset();
+      this.isSubmitted = false;
+    }
+    this.isSubmitted = true;
   }
 }

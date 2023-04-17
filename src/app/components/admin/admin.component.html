@@ -17,14 +17,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>ahmad</td>
-                <td>allan</td>
-                <td>0784567890</td>
-                <td>aaa200265@gmail.com</td>
-                <td>amman</td>
-                <td>root</td>
+            <tr *ngFor="let admin of admins">
+                <td>{{admin.id}}</td>
+                <td>{{admin.firstName}}</td>
+                <td>{{admin.lastName}}</td>
+                <td>{{admin.phoneNumber}}</td>
+                <td>{{admin.email}}</td>
+                <td>{{admin.address}}</td>
+                <td>{{admin.userName}}</td>
                 <th><button class="btnTable"> <img src="./assets/icons/delete.png" alt="Delete"> Delete</button></th>
             </tr>
             
@@ -96,7 +96,7 @@
 
         <div class="config">
             <img src="./assets/icons/admin-add.png" alt="">
-            <button class="btnConfig" (click)="onClick('add')"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" (click)="addAdmin()"><img src="./assets/icons/save.png" alt="save"> Save</button>
             <button class="btnConfig" (click)="onClick('cancel')">x Cancel</button>
         </div>
     </fieldset>
