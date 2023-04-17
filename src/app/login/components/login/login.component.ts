@@ -7,9 +7,9 @@ import {  Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, DoCheck {
+export class LoginComponent implements OnInit {
   form!: FormGroup;
-  isValid: boolean = true;
+  isSubmitted: boolean = false;
 
   constructor (private formBuilder: FormBuilder, private router: Router) {}
 
@@ -22,30 +22,19 @@ export class LoginComponent implements OnInit, DoCheck {
     this.form.valueChanges.subscribe()
   }
 
-
-  ngDoCheck(): void {
-    this.form.valueChanges.subscribe(() => {
-      this.isValid = this.form.valid;
-      console.log('form valid', this.isValid);
-      console.log('ueser name', this.emailValidation);
-      console.log('password', this.passwordValidation);
-    });  
-  }
-
   get emailValidation() {
-    return this.form.get('email')?.invalid || this.form.get('email')?.touched;
+    return this.form.get('email')?.invalid && (this.form.get('email')?.dirty || this.form.get('email')?.touched || this.isSubmitted);
   }
 
   get passwordValidation() {
-    return this.form.get('password')?.invalid && this.form.get('password')?.touched;
+    return this.form.get('password')?.invalid && (this.form.get('password')?.dirty || this.form.get('password')?.touched || this.isSubmitted);
   }
 
 
-  onClick() {
-    if(this.form.valid) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.isValid = this.form.valid;
+  onSubmit(): void {
+    if(this.form.valid){
+      this.router.navigate(['/dashboard'])
     }
+    this.isSubmitted = true;
   }
 }

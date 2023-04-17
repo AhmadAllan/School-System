@@ -80,8 +80,9 @@ fieldset legend {
 }
 
 .formBox div > input{
-    width: 250px;
+    width: 80%;
     height: 30px;
+    grid-row-start: 2;
 }
 
 
@@ -161,6 +162,8 @@ input.error {
 }
   
 .error-message {
+    grid-column-start: 1;
+    grid-column-end: 4;
     color: red;
     font-size: 12px;
 }

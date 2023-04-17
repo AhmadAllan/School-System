@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TeachersComponent {
   isVisiable: boolean = false;
-  isValid: boolean = true;
+  isSubmitted: boolean = false;
   form!: FormGroup;
   
   constructor (private formBuilder: FormBuilder) {}
@@ -48,51 +48,48 @@ export class TeachersComponent {
   }
 
   get firstNameValid(){
-    return this.form.get('firstName')?.invalid && this.form.get('firstName')?.touched;
+    return this.form.get('firstName')?.invalid && (this.form.get('firstName')?.touched || this.form.get('firstName')?.dirty || this.isSubmitted);
   }
 
   get lastNameValid(){
-    return this.form.get('lastName')?.invalid && this.form.get('lastName')?.touched;
+    return this.form.get('lastName')?.invalid && (this.form.get('lastName')?.touched || this.form.get('lastName')?.dirty || this.isSubmitted);
   }
 
   get phoneValid(){
-    return this.form.get('phone')?.invalid && this.form.get('phone')?.touched;
+    return this.form.get('phone')?.invalid && (this.form.get('phone')?.touched || this.form.get('phone')?.dirty || this.isSubmitted);
   }
 
   get emailValid(){
-    return this.form.get('email')?.invalid && this.form.get('email')?.touched;
+    return this.form.get('email')?.invalid && (this.form.get('email')?.touched || this.form.get('email')?.dirty || this.isSubmitted);
   }
 
   get classValid(){
-    return this.form.get('class')?.invalid && this.form.get('class')?.touched;
+    return this.form.get('class')?.invalid && (this.form.get('class')?.touched || this.form.get('class')?.dirty || this.isSubmitted);
   }
 
-  get materialVaild(){
-    return this.form.get('material')?.invalid && this.form.get('material')?.touched;
-  }
-
-  ngDoCheck(): void {
-    this.form.valueChanges.subscribe(() => {
-      this.isValid = true;
-    }); 
+  get materialValid(){
+    return this.form.get('material')?.invalid && (this.form.get('material')?.touched || this.form.get('material')?.dirty || this.isSubmitted);
   }
 
   onToggle(): void {
     this.isVisiable = !this.isVisiable;
+    this.isSubmitted = false;
+
   }
 
   onClick(str: string) {
     if(str === 'add'){
-      if (this.form.valid){
+      if(this.form.valid){
         alert('user added successfully');
         this.isVisiable = false;
         this.form.reset();
-      } else {
-        this.isValid = false;
+        this.isSubmitted = false;
       }
+      this.isSubmitted = true;
     } else {
       this.isVisiable = false;
       this.form.reset();
+      this.isSubmitted = false;
     }
   }
 }

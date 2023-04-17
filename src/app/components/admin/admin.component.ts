@@ -6,9 +6,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit, DoCheck {
+export class AdminComponent implements OnInit {
   isVisiable: boolean = false;
-  isValid: boolean = true;
+  isSubmitted: boolean = false;
   form!: FormGroup;
   
   constructor (private formBuilder: FormBuilder) {}
@@ -47,7 +47,7 @@ export class AdminComponent implements OnInit, DoCheck {
           Validators.required,
         ],
       ],
-      passConfirm: [
+      passwordConfirm: [
         '' , [
           Validators.required,
         ],
@@ -56,41 +56,35 @@ export class AdminComponent implements OnInit, DoCheck {
   }
 
   get firstNameValid(){
-    return this.form.get('firstName')?.invalid && this.form.get('firstName')?.touched;
+    return this.form.get('firstName')?.invalid && (this.form.get('firstName')?.touched || this.form.get('firstName')?.dirty || this.isSubmitted);
   }
 
   get lastNameValid(){
-    return this.form.get('lastName')?.invalid && this.form.get('lastName')?.touched;
+    return this.form.get('lastName')?.invalid && (this.form.get('lastName')?.touched || this.form.get('lastName')?.dirty || this.isSubmitted);
   }
 
   get userNameValid(){
-    return this.form.get('userName')?.invalid && this.form.get('userName')?.touched;
-  }
+    return this.form.get('userName')?.invalid && (this.form.get('userName')?.touched || this.form.get('userName')?.dirty || this.isSubmitted);
+   }
 
   get phoneValid(){
-    return this.form.get('phone')?.invalid && this.form.get('phone')?.touched;
+    return this.form.get('phone')?.invalid && (this.form.get('phone')?.touched || this.form.get('phone')?.dirty || this.isSubmitted);
   }
 
   get emailValid(){
-    return this.form.get('email')?.invalid && this.form.get('email')?.touched;
+    return this.form.get('email')?.invalid && (this.form.get('email')?.touched || this.form.get('email')?.dirty || this.isSubmitted);
   }
 
   get addressValid(){
-    return this.form.get('address')?.invalid && this.form.get('address')?.touched;
+    return this.form.get('address')?.invalid && (this.form.get('address')?.touched || this.form.get('address')?.dirty || this.isSubmitted);
   }
 
   get passwordVaild(){
-    return this.form.get('password')?.invalid && this.form.get('password')?.touched;
+    return this.form.get('password')?.invalid && (this.form.get('password')?.touched || this.form.get('password')?.dirty || this.isSubmitted);
   }
 
-  get passConfirmValid(){
-    return this.form.get('passConfirm')?.invalid && this.form.get('passConfirm')?.touched;
-  }
-
-  ngDoCheck(): void {
-    this.form.valueChanges.subscribe(() => {
-      this.isValid = true;
-    }); 
+  get passwordConfirmValid(){
+    return this.form.get('passwordConfirm')?.invalid && (this.form.get('passwordConfirm')?.touched || this.form.get('passwordConfirm')?.dirty || this.isSubmitted);
   }
 
   onToggle(): void {
@@ -99,16 +93,17 @@ export class AdminComponent implements OnInit, DoCheck {
 
  onClick(str: string) {
     if(str === 'add'){
-      if (this.form.valid){
+      if(this.form.valid){
         alert('user added successfully');
         this.isVisiable = false;
         this.form.reset();
-      } else {
-        this.isValid = false;
+        this.isSubmitted = false;
       }
+      this.isSubmitted = true;
     } else {
       this.isVisiable = false;
       this.form.reset();
+      this.isSubmitted = false;
     }
   }
 }

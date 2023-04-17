@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ParentsComponent {
   isVisiable: boolean = false;
-  isValid: boolean = true;
+  isSubmitted: boolean = false;
   form!: FormGroup;
   
   constructor (private formBuilder: FormBuilder) {}
@@ -38,43 +38,39 @@ export class ParentsComponent {
   }
 
   get firstNameValid(){
-    return this.form.get('firstName')?.invalid && this.form.get('firstName')?.touched;
+    return this.form.get('firstName')?.invalid && (this.form.get('firstName')?.touched || this.form.get('firstName')?.dirty || this.isSubmitted);
   }
 
   get lastNameValid(){
-    return this.form.get('lastName')?.invalid && this.form.get('lastName')?.touched;
+    return this.form.get('lastName')?.invalid && (this.form.get('lastName')?.touched || this.form.get('lastName')?.dirty || this.isSubmitted);
   }
 
   get phoneValid(){
-    return this.form.get('phone')?.invalid && this.form.get('phone')?.touched;
+    return this.form.get('phone')?.invalid && (this.form.get('phone')?.touched || this.form.get('phone')?.dirty || this.isSubmitted);
   }
 
   get addressValid(){
-    return this.form.get('address')?.invalid && this.form.get('address')?.touched;
-  }
-
-  ngDoCheck(): void {
-    this.form.valueChanges.subscribe(() => {
-      this.isValid = true;
-    }); 
+    return this.form.get('address')?.invalid && (this.form.get('address')?.touched || this.form.get('address')?.dirty || this.isSubmitted);
   }
 
   onToggle(): void {
     this.isVisiable = !this.isVisiable;
+    this.isSubmitted = false;
   }
 
- onClick(str: string) {
+  onClick(str: string) {
     if(str === 'add'){
-      if (this.form.valid){
+      if(this.form.valid){
         alert('user added successfully');
         this.isVisiable = false;
         this.form.reset();
-      } else {
-        this.isValid = false;
+        this.isSubmitted = false;
       }
+      this.isSubmitted = true;
     } else {
       this.isVisiable = false;
       this.form.reset();
+      this.isSubmitted = false;
     }
   }
 }
