@@ -31,7 +31,7 @@ for now:
 => add more ideas if needed
 
 ## Problems to fix:
-- [ ] fix the behavior of the form validation, only god know why this madnees happened when i press the form submit button
+- [ ] Only God knows why this madness happens when I press the submit-button on the form.
 
 ## the outcomes in the end:
 1- handle making a website from scratch\
