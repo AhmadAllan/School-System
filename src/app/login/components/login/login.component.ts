@@ -22,17 +22,21 @@ export class LoginComponent implements OnInit, DoCheck {
     this.form.valueChanges.subscribe()
   }
 
+
   ngDoCheck(): void {
     this.form.valueChanges.subscribe(() => {
-      this.isValid = true;   
+      this.isValid = this.form.valid;
+      console.log('form valid', this.isValid);
+      console.log('ueser name', this.emailValidation);
+      console.log('password', this.passwordValidation);
     });  
   }
 
   get emailValidation() {
-    return this.form.get('email')?.invalid && this.form.get('email')?.touched;
+    return this.form.get('email')?.invalid || this.form.get('email')?.touched;
   }
 
-  get passValidation() {
+  get passwordValidation() {
     return this.form.get('password')?.invalid && this.form.get('password')?.touched;
   }
 

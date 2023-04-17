@@ -36,7 +36,6 @@
     border: 2px solid var(--border-color);
 }
 .login button {
-    width: 30%;
     display: flex;
     align-items: center;
     justify-content: left;

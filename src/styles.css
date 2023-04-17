@@ -115,7 +115,7 @@ button:hover{
     cursor: pointer;
 }
 .btnConfig {
-    width: 150px;
+    width: 100px;
     padding: 10px;
     gap: 10px;
     border: none;

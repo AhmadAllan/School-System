@@ -9,14 +9,14 @@
             <div class="userName">
                 <label for="userName">User name</label>
                 <br>
-                <input [ngClass]="{'error': emailValidation || !isValid}" type="text" id="userName" placeholder="Your user name" formControlName="email">
-                <p class="error-message" *ngIf="emailValidation || !isValid">please enter your user name</p>
+                <input [ngClass]="{'error': emailValidation && !isValid}" type="text" id="userName" placeholder="Your user name" formControlName="email">
+                <p class="error-message" *ngIf="emailValidation && !isValid">please enter your user name</p>
             </div>
             <div class="pass">
                 <label for="pass">Password</label>
                 <br>
-                <input [ngClass]="{'error': passValidation || !isValid}" type="password" id="pass" placeholder="your password" formControlName="password">
-                <p class="error-message" *ngIf="passValidation || !isValid">please enter your user password</p>
+                <input [ngClass]="{'error': passwordValidation || !isValid}" type="password" id="pass" placeholder="your password" formControlName="password">
+                <p class="error-message" *ngIf="passwordValidation || !isValid">please enter your user password</p>
             </div>
             <button class="btnConfig" id="btnlogin"><img src="./assets/icons/login-btn.png" alt="login"> Login</button>
         </form>             
