@@ -17,21 +17,21 @@ for now:
 ## To Do
 - [x] create the project html and css
 - [x] give some function to test the initial behavior
-- [X] the styling have some problem fix them
-- [X] create the same project with angular
-- [X] validate the forms
+- [x] the styling have some problem fix them
+- [x] create the same project with angular
+- [x] validate the forms
 - [ ] create separated module for login, dashboard, parents, students, teachers and admin\
 => add more to-dos if needed
 
 ## Ideas for the website:
 - [ ] remove the parent page and make this information appear in Student page, it will make easier to user to understand
-- [X] in angular make the login make in it's own module and the and the others in the app module
+- [x] in angular make the login make in it's own module and the and the others in the app module
 - [ ] use json-server package to make a mock database to see how the website will bebrhavior
 - [ ] make it responsive
 => add more ideas if needed
 
 ## Problems to fix:
-- [ ] Only God knows why this madness happens when I press the submit-button on the form.
+- [x] Only God knows why this madness happens when I press the submit-button on the form.
 
 ## the outcomes in the end:
 1- handle making a website from scratch\
