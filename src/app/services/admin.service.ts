@@ -23,12 +23,12 @@ export class AdminService {
   }
 
   addAdmin(admin: Admin): Observable<Admin> {
-    return this.http.put<Admin>(this.apiUrl, admin, httpOptions);
+    return this.http.post<Admin>('http://localhost:5000/admins', admin, httpOptions);
   }
 
   // delete admin from admins array
   deleteAdmin(admin: Admin): Observable<Admin>{
     const url = `${this.apiUrl}/${admin.id}`;
-    return this.http.put<Admin>(url, admin, httpOptions);
+    return this.http.delete<Admin>(url);
   }
 }

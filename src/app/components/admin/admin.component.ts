@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Admin } from 'src/app/interfaces/Admin';
 import { AdminService } from 'src/app/services/admin.service';
@@ -15,12 +15,11 @@ export class AdminComponent implements OnInit {
   form!: FormGroup;
   admins: Admin[] = [];
   admin: Admin = {
-    id: this.admins.length+1,
     firstName: '',
     lastName: '',
     userName: '',
     email: '',
-    phoneNumber: undefined,
+    phoneNumber: 0 ,
     address: '',
     password: ''
   }
@@ -71,10 +70,13 @@ export class AdminComponent implements OnInit {
       validator: this.customVadlidator.passwordMatchValidator("password","passwordConfirm")
     })
 
-    this.adminService.getAdmins().subscribe(admins => this.admins = admins)    
+    this.adminService.getAdmins().subscribe(admins => {
+      this.admins = admins
+    })    
   }
 
 
+  
 
 
   get firstNameValid(){
@@ -132,16 +134,26 @@ export class AdminComponent implements OnInit {
   }
 
   addAdmin() {
-    this.admin
-    console.log(this.admin.firstName);
+    this.admin.firstName = this.form.controls['firstName'].value;
+    this.admin.lastName = this.form.controls['lastName'].value;
+    this.admin.userName = this.form.controls['userName'].value;
+    this.admin.email = this.form.controls['email'].value;
+    this.admin.phoneNumber = this.form.controls['phone'].value;
+    this.admin.password = this.form.controls['password'].value;
+    this.admin.address = this.form.controls['address'].value;
     
-    this.adminService.addAdmin(this.admin).subscribe(admin => this.admins.push(admin))
+    this.adminService.addAdmin(this.admin).subscribe();
     if(this.form.valid){
       alert('user added successfully');
       this.isVisiable = false;
       this.form.reset();
       this.isSubmitted = false;
+      window.location.reload();
     }
     this.isSubmitted = true;
+  }
+
+  deleteAdmin(admin: Admin) {
+    this.adminService.deleteAdmin(admin).subscribe( () => this.admins = this.admins.filter(t => t.id !== admin.id));
   }
 }
