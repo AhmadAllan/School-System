@@ -43,3 +43,12 @@ for now:
 ## currently work on
 - Transform the project to angular
 # Live preview - https://ahmadallan.github.io/School-System/
+
+
+### to use the project:
+## if you want to test the json-server with the project follow this:
+- git clone https://github.com/AhmadAllan/School-System.git
+- go to the project folder and run the comman # npm install
+- install json-server: npm install -g json-server
+- after that ng serve -o
+- after that npm run server, ig that did not work use: json-server --watch db.json --port 5000

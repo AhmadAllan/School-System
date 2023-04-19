@@ -19,13 +19,6 @@
       "lastName": "allan",
       "grade": "10",
       "class": "a"
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "grade": "",
-      "class": "",
-      "id": 2
     }
   ],
   "teachers": []
