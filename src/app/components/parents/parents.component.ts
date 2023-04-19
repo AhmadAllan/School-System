@@ -81,8 +81,9 @@ export class ParentsComponent {
     this.parent.address = this.form.controls['address'].value;
     this.parent.phoneNumber = this.form.controls['phone'].value;
 
-    this.parentService.addParent(this.parent).subscribe()
+    
     if(this.form.valid){
+      this.parentService.addParent(this.parent).subscribe()
       alert('parent added successfully');
       this.isVisiable = false;
       this.form.reset();

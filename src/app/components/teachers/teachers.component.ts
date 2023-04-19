@@ -105,8 +105,9 @@ export class TeachersComponent {
     this.teacher.material = this.form.controls['material'].value;
     this.teacher.phoneNumber = this.form.controls['phone'].value;
 
-    this.teacherService.addTeacher(this.teacher).subscribe()
+    
     if(this.form.valid){
+      this.teacherService.addTeacher(this.teacher).subscribe()
       alert('teacher added successfully');
       this.isVisiable = false;
       this.form.reset();

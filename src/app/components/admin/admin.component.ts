@@ -133,8 +133,9 @@ export class AdminComponent implements OnInit {
     this.admin.password = this.form.controls['password'].value;
     this.admin.address = this.form.controls['address'].value;
     
-    this.adminService.addAdmin(this.admin).subscribe();
+    
     if(this.form.valid){
+      this.adminService.addAdmin(this.admin).subscribe();
       alert('user added successfully');
       this.isVisiable = false;
       this.form.reset();

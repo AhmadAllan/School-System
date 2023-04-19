@@ -77,8 +77,9 @@ export class StudentsComponent {
     this.student.grade = this.form.controls['grade'].value;
     this.student.class = this.form.controls['class'].value;
 
-    this.studentService.addStudent(this.student).subscribe()
+    
     if(this.form.valid){
+      this.studentService.addStudent(this.student).subscribe()
       alert('student added successfully');
       this.isVisiable = false;
       this.form.reset();
