@@ -15,21 +15,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>ahmad</td>
-                <td>allan</td>
-                <td>0784567890</td>
-                <td>amman</td>
-                <th><button class="btnTable"> <img src="./assets/icons/delete.png" alt="Delete"> Delete</button></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ahmad</td>
-                <td>allan</td>
-                <td>0784567890</td>
-                <td>amman</td>
-                <th><button class="btnTable"> <img src="./assets/icons/delete.png" alt="Delete"> Delete</button></th>
+            <tr *ngFor="let parent of parents">
+                <td>{{parent.id}}</td>
+                <td>{{parent.firstName}}</td>
+                <td>{{parent.lastName}}</td>
+                <td>{{parent.phoneNumber}}</td>
+                <td>{{parent.address}}</td>
+                <th><button class="btnTable" (click)="deleteParent(parent)"> <img src="./assets/icons/delete.png" alt="Delete" > Delete</button></th>
             </tr>
         </tbody>
     </table>
@@ -72,8 +64,8 @@
 
         <div class="config">
             <img src="./assets/icons/parent-add.png" alt="">
-            <button class="btnConfig" (click)="onClick('add')"><img src="./assets/icons/save.png" alt="save"> Save</button>
-            <button class="btnConfig" (click)="onClick('cancel')">x Cancel</button>
+            <button class="btnConfig" (click)="addParent()"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" (click)="onClick()">x Cancel</button>
         </div>
     </fieldset>
 </main>

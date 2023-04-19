@@ -117,20 +117,11 @@ export class AdminComponent implements OnInit {
     this.isVisiable = !this.isVisiable;
   }
 
- onClick(str: string) {
-    if(str === 'add'){
-      if(this.form.valid){
-        alert('user added successfully');
-        this.isVisiable = false;
-        this.form.reset();
-        this.isSubmitted = false;
-      }
-      this.isSubmitted = true;
-    } else {
-      this.isVisiable = false;
-      this.form.reset();
-      this.isSubmitted = false;
-    }
+ onClick() {
+    this.isSubmitted = true;
+    this.isVisiable = false;
+    this.form.reset();
+    this.isSubmitted = false;
   }
 
   addAdmin() {

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { tick } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Parent } from 'src/app/interfaces/Parent';
+import { ParentService } from 'src/app/services/parent.service';
 
 @Component({
   selector: 'app-parents',
@@ -11,8 +13,15 @@ export class ParentsComponent {
   isVisiable: boolean = false;
   isSubmitted: boolean = false;
   form!: FormGroup;
+  parents: Parent[] = [];
+  parent: Parent = {
+    firstName: '',
+    lastName: '',
+    phoneNumber: 0,
+    address: ''
+  } 
   
-  constructor (private formBuilder: FormBuilder) {}
+  constructor (private formBuilder: FormBuilder, private parentService: ParentService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -35,6 +44,8 @@ export class ParentsComponent {
         ],
       ]
     })
+
+    this.parentService.getParents().subscribe(parents => this.parents = parents);
   }
 
   get firstNameValid(){
@@ -58,19 +69,31 @@ export class ParentsComponent {
     this.isSubmitted = false;
   }
 
-  onClick(str: string) {
-    if(str === 'add'){
-      if(this.form.valid){
-        alert('user added successfully');
-        this.isVisiable = false;
-        this.form.reset();
-        this.isSubmitted = false;
-      }
-      this.isSubmitted = true;
-    } else {
+  onClick() {
+    this.isSubmitted = true;
+    this.isVisiable = false;
+    this.form.reset();
+    this.isSubmitted = false;
+  }
+
+  addParent(){
+    this.parent.firstName = this.form.controls['firstName'].value;
+    this.parent.lastName = this.form.controls['lastName'].value;
+    this.parent.address = this.form.controls['address'].value;
+    this.parent.phoneNumber = this.form.controls['phone'].value;
+
+    this.parentService.addParent(this.parent).subscribe()
+    if(this.form.valid){
+      alert('parent added successfully');
       this.isVisiable = false;
       this.form.reset();
       this.isSubmitted = false;
+      window.location.reload();
     }
+    this.isSubmitted = true;
+  }
+
+  deleteParent(parent: Parent) {
+    this.parentService.deleteParent(parent).subscribe(() => this.parents = this.parents.filter(t => t.id !== parent.id))   
   }
 }
