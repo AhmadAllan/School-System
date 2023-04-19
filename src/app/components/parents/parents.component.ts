@@ -43,7 +43,7 @@ export class ParentsComponent {
           Validators.required,
         ],
       ]
-    })
+    });
 
     this.parentService.getParents().subscribe(parents => this.parents = parents);
   }

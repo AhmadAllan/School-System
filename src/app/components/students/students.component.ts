@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Student } from 'src/app/interfaces/Student';
+import { StudentsService } from 'src/app/services/students.service';
 
 @Component({
   selector: 'app-students',
@@ -7,12 +9,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent {
-  isVisiableMore: boolean = false;
-  isVisiableAdd: boolean = false;
+  isVisiable: boolean = false;
   isSubmitted: boolean = false;
   form!: FormGroup;
+  students: Student[] = [];
+  student: Student = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    grade: '',
+    class: ''
+  }
   
-  constructor (private formBuilder: FormBuilder) {}
+  constructor (private formBuilder: FormBuilder, private studentService: StudentsService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -32,7 +41,8 @@ export class StudentsComponent {
           Validators.required,
         ],
       ]
-    })
+    });
+    this.studentService.getStudents().subscribe(students => this.students = students)
   }
 
   get firstNameValid(){
@@ -51,33 +61,36 @@ export class StudentsComponent {
     return this.form.get('class')?.invalid && (this.form.get('class')?.touched || this.form.get('class')?.dirty || this.isSubmitted);
   }
 
-  onClick(str: string) {
-    if(str === 'add'){
-      if(this.form.valid){
-        alert('user added successfully');
-        this.isVisiableAdd = false;
-        this.form.reset();
-        this.isSubmitted = false;
-      }
-      this.isSubmitted = true;
-    } else {
-      this.isVisiableAdd = false;
-      this.form.reset();
-      this.isSubmitted = false;
-    }
+  onToggle(): void {
+    this.isVisiable = !this.isVisiable;
+    this.isSubmitted = false;
   }
 
-  onToggle(str: String) {
-    if(str === 'add'){
-      this.isVisiableAdd = !this.isVisiableAdd;
-      this.isVisiableMore = false
-      this.isSubmitted = false;
+  onClick() {
+    this.isSubmitted = true;
+    this.isVisiable = false;
+    this.form.reset();
+    this.isSubmitted = false;
+  }
 
-    } else {
-      this.isVisiableMore = !this.isVisiableMore;
-      this.isVisiableAdd = false
-      this.isSubmitted = false;
+  addStudent(){
+    this.student.firstName = this.form.controls['firstName'].value;
+    this.student.lastName = this.form.controls['lastName'].value;
+    this.student.grade = this.form.controls['grade'].value;
+    this.student.class = this.form.controls['class'].value;
 
+    this.studentService.addStudent(this.student).subscribe()
+    if(this.form.valid){
+      alert('student added successfully');
+      this.isVisiable = false;
+      this.form.reset();
+      this.isSubmitted = false;
+      window.location.reload();
     }
+    this.isSubmitted = true;
+  }
+
+  deleteStudent(student: Student) {
+    this.studentService.deleteStudent(student).subscribe(() => this.students = this.students.filter(t => t.id !== student.id))   
   }
 }

@@ -12,6 +12,14 @@
     }
   ],
   "parents": [],
-  "students": [],
+  "students": [
+    {
+      "id": 1,
+      "firstName": "ahmad",
+      "lastName": "allan",
+      "grade": "10",
+      "class": "a"
+    }
+  ],
   "teachers": []
 }
