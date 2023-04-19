@@ -1,6 +1,8 @@
-import { AfterContentChecked, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
+import { Admin } from 'src/app/interfaces/Admin';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,10 @@ import {  Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   form!: FormGroup;
   isSubmitted: boolean = false;
-
-  constructor (private formBuilder: FormBuilder, private router: Router) {}
+  isUserCorrect!: boolean;
+  errorMessage: string = "Please fill the your info"
+  admins: Admin[] = [];
+  constructor (private formBuilder: FormBuilder, private router: Router, private adminService: AdminService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -20,6 +24,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe()
+    this.adminService.getAdmins().subscribe(admins => this.admins = admins);
   }
 
   get emailValidation() {
@@ -30,11 +35,11 @@ export class LoginComponent implements OnInit {
     return this.form.get('password')?.invalid && (this.form.get('password')?.dirty || this.form.get('password')?.touched || this.isSubmitted);
   }
 
-
   onSubmit(): void {
+    this.isSubmitted = true;   
     if(this.form.valid){
+      
       this.router.navigate(['/dashboard'])
     }
-    this.isSubmitted = true;
-  }
+  }  
 }

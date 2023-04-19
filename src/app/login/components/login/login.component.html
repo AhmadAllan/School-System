@@ -3,8 +3,8 @@
         <img src="./assets/icons/login.png" alt="Login">
         <p>Login in to your account</p>
     </div>
-        <form [formGroup]="form" class="login" (ngSubmit)="onSubmit()">
-            <p class="error-message" style="font-size: large;" *ngIf="isSubmitted">Please fill the your info</p>
+        <form [formGroup]="form" class="login">
+            <p class="error-message" style="font-size: large;" *ngIf="isSubmitted">{{errorMessage}}</p>
             <p>Enter your user name and password</p>
             <div class="userName">
                 <label for="userName">User name</label>
@@ -18,6 +18,6 @@
                 <input [ngClass]="{'error': passwordValidation}" type="password" id="pass" placeholder="your password" formControlName="password">
                 <p class="error-message" *ngIf="passwordValidation">please enter your user password</p>
             </div>
-            <button class="btnConfig" id="btnlogin" type="submit"><img src="./assets/icons/login-btn.png" alt="login"> Login</button>
+            <button class="btnConfig" id="btnlogin" (click)="onSubmit()"><img src="./assets/icons/login-btn.png" alt="login"> Login</button>
         </form>             
 </div>

@@ -20,6 +20,7 @@ for now:
 - [x] the styling have some problem fix them
 - [x] create the same project with angular
 - [x] validate the forms
+- [ ] add login functionality
 - [ ] create separated module for login, dashboard, parents, students, teachers and admin\
 => add more to-dos if needed
 

@@ -19,6 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule
-  ]
+  ],
 })
 export class LoginModule { }
