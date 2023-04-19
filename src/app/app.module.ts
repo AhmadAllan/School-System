@@ -14,6 +14,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginModule } from './login/login.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AdminComponent
   ],
   imports: [
+    CommonModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,

@@ -14,7 +14,6 @@ export class StudentsComponent {
   form!: FormGroup;
   students: Student[] = [];
   student: Student = {
-    id: 0,
     firstName: '',
     lastName: '',
     grade: '',

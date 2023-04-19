@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { tick } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Parent } from 'src/app/interfaces/Parent';
 import { ParentService } from 'src/app/services/parent.service';

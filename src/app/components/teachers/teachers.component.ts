@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Teacher } from 'src/app/interfaces/Teacher';
+import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
   selector: 'app-teachers',
@@ -10,8 +12,17 @@ export class TeachersComponent {
   isVisiable: boolean = false;
   isSubmitted: boolean = false;
   form!: FormGroup;
+  teachers: Teacher[] = [];
+  teacher: Teacher = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    class: '',
+    material: '',
+    phoneNumber: 0
+  }
   
-  constructor (private formBuilder: FormBuilder) {}
+  constructor (private formBuilder: FormBuilder, private teacherService: TeacherService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -44,7 +55,8 @@ export class TeachersComponent {
           Validators.required,
         ],
       ],
-    })
+    });
+    this.teacherService.getTeachers().subscribe(teachers => this.teachers = teachers);
   }
 
   get firstNameValid(){
@@ -74,22 +86,37 @@ export class TeachersComponent {
   onToggle(): void {
     this.isVisiable = !this.isVisiable;
     this.isSubmitted = false;
-
   }
 
-  onClick(str: string) {
-    if(str === 'add'){
-      if(this.form.valid){
-        alert('user added successfully');
-        this.isVisiable = false;
-        this.form.reset();
-        this.isSubmitted = false;
-      }
-      this.isSubmitted = true;
-    } else {
+  onClick() {
+    this.isSubmitted = true;
+    this.isVisiable = false;
+    this.form.reset();
+    this.isSubmitted = false;
+  }
+
+  addTeacher(){
+    console.log('here');
+    
+    this.teacher.firstName = this.form.controls['firstName'].value;
+    this.teacher.lastName = this.form.controls['lastName'].value;
+    this.teacher.email = this.form.controls['email'].value;
+    this.teacher.class = this.form.controls['class'].value;
+    this.teacher.material = this.form.controls['material'].value;
+    this.teacher.phoneNumber = this.form.controls['phone'].value;
+
+    this.teacherService.addTeacher(this.teacher).subscribe()
+    if(this.form.valid){
+      alert('teacher added successfully');
       this.isVisiable = false;
       this.form.reset();
       this.isSubmitted = false;
+      window.location.reload();
     }
+    this.isSubmitted = true;
+  }
+
+  deleteTeacher(teacher: Teacher) {
+    this.teacherService.deleteTeacher(teacher).subscribe(() => this.teachers = this.teachers.filter(t => t.id !== teacher.id))   
   }
 }

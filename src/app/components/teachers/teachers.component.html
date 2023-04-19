@@ -11,23 +11,21 @@
                 <th>Last name</th>
                 <th>Phone number</th>
                 <th>Email</th>
-                <th>Address</th>
                 <th>Class</th>
-                <th>material</th>
+                <th>Material</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>ahmad</td>
-                <td>allan</td>
-                <td>0784567890</td>
-                <td>aaa200265@gmail.com</td>
-                <td>amman</td>
-                <td>a</td>
-                <td>C++</td>
-                <th><button class="btnTable"> <img src="./assets/icons/delete.png" alt="Delete"> Delete</button></th>
+            <tr *ngFor="let teacher of teachers">
+                <td>{{teacher.id}}</td>
+                <td>{{teacher.firstName}}</td>
+                <td>{{teacher.lastName}}</td>
+                <td>{{teacher.phoneNumber}}</td>
+                <td>{{teacher.email}}</td>
+                <td>{{teacher.class}}</td>
+                <td>{{teacher.material}}</td>
+                <th><button class="btnTable" (click)="deleteTeacher(teacher)"> <img src="./assets/icons/delete.png" alt="Delete"> Delete</button></th>
             </tr>
         </tbody>
     </table>
@@ -83,8 +81,8 @@
 
         <div class="config">
             <img src="./assets/icons/teacher-add.png" alt="">
-            <button class="btnConfig" (click)="onClick('add')"><img src="./assets/icons/save.png" alt="save"> Save</button>
-            <button class="btnConfig" (click)="onClick('cancel')">x Cancel</button>
+            <button class="btnConfig" (click)="addTeacher()"><img src="./assets/icons/save.png" alt="save"> Save</button>
+            <button class="btnConfig" (click)="onClick()">x Cancel</button>
         </div>
     </fieldset>
 </main>
