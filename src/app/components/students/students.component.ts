@@ -69,7 +69,6 @@ export class StudentsComponent {
     this.isSubmitted = true;
     this.isVisiable = false;
     this.form.reset();
-    this.isSubmitted = false;
   }
 
   addStudent(){

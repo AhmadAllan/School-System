@@ -1,0 +1,70 @@
+<main>
+    <div class="info">
+        <div class="address box">
+            <img src="./assets/icons/address-contact.png" alt="Address">
+            <div class="details">
+                <label>Address:</label>
+                <p>737 Walker Road Great Falls, VA 22066</p>
+            </div>
+        </div>
+
+        <div class="phone box">
+            <img src="./assets/icons/phone-contact.png" alt="Phone">
+            <div class="details">
+                <label>Phone:</label>
+                <p>433.333.4100</p>
+            </div>
+        </div>
+
+        <div class="email box">
+            <img src="./assets/icons/email-contact.png" alt="Email">
+            <div class="details">
+                <label>Eamil:</label>
+                <p>info@blilogix.com</p>
+            </div>
+        </div>
+
+        <div class="fax box">
+            <img src="./assets/icons/fax-contact.png" alt="Fax">
+            <div class="details">
+                <label>Fax:</label>
+                <p>i433.333.4101</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="title">
+        <p>Contact us</p>
+    </div>
+
+    <div class="message">
+        <form [formGroup]="form">
+            <p class="error-message" style="font-size: large;" *ngIf="isSubmitted">Please fill the the form</p>
+            <label>Your Message*</label>
+            <div class="input">
+                <textarea [class.error]="messageValid" formControlName="message" name="massage" class="text" cols="30" rows="10" placeholder="enter your message here"></textarea>
+                <p class="error-message" *ngIf="messageValid" >please enter your message</p>
+            </div>
+            <br>
+            <label for="firstName">First name*</label>
+            <div class="input">
+                <input [class.error]="firstNameValid" formControlName="firstName" type="text" class="text">
+                <p class="error-message" *ngIf="firstNameValid" >please enter the student first name</p>
+            </div>
+            <br>
+            <label  for="lastName">Last Name*</label>
+            <div class="input">
+                <input [class.error]="lastNameValid" formControlName="lastName" type="text" class="text">
+                <p class="error-message" *ngIf="lastNameValid" >please enter your last name</p>
+            </div>
+            <br>
+            <label for="email">Your email*</label>
+            <div class="input">
+                <input [class.error]="emailValid" formControlName="email" type="text" class="text">
+                <p class="error-message" *ngIf="emailValid" >please enter your email</p>
+            </div>
+        </form>
+    </div>
+
+    <button class="btnConfig" type="button" (click)="onClick()">send</button>
+</main>

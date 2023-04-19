@@ -5,7 +5,7 @@ import { ParentsComponent } from './components/parents/parents.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { StudentsComponent } from './components/students/students.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { LoginComponent } from './login/components/login/login.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   {path: '' ,redirectTo: 'login', pathMatch: 'full'},
@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'teachers', component: TeachersComponent},
   {path: 'students', component: StudentsComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'contact-us', component: ContactComponent}
 
 ];
 

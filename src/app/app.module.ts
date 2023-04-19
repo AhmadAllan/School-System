@@ -15,6 +15,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { LoginModule } from './login/login.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CommonModule } from '@angular/common';
     ParentsComponent,
     TeachersComponent,
     StudentsComponent,
-    AdminComponent
+    AdminComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
