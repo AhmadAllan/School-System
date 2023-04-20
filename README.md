@@ -1,6 +1,13 @@
 # School-System
 A project to test my skills
 
+### to use the project:
+## if you want to test the json-server with the project follow this:
+- git clone https://github.com/AhmadAllan/School-System.git
+- go to the project folder and run the comman # npm install
+- install json-server: npm install -g json-server
+- after that ng serve -o
+- after that npm run server, ig that did not work use: json-server --watch db.json --port 5000
 ## Project steps:
 - [x] first make the project with vanilla html and css without using framework (Angular)
 - [X] write my idea to make the website functional
@@ -20,19 +27,15 @@ for now:
 - [x] the styling have some problem fix them
 - [x] create the same project with angular
 - [x] validate the forms
-- [ ] add login functionality
-- [ ] create separated module for login, dashboard, parents, students, teachers and admin\
+- [x] create separated module for login, dashboard, parents, students, teachers and admin
+- [x] lazy loading the modules\
 => add more to-dos if needed
 
 ## Ideas for the website:
 - [x] in angular make the login make in it's own module and the and the others in the app module
 - [x] use json-server package to make a mock database to see how the website will bebrhavior
-- [ ] make it responsive
+- [ ] make it responsive\
 => add more ideas if needed
-
-## Problems to fix:
-- [x] Only God knows why this madness happens when I press the submit-button on the form.
-
 ## the outcomes in the end:
 1- handle making a website from scratch\
 2- styling with out problem\
@@ -44,10 +47,3 @@ for now:
 # Live preview - https://ahmadallan.github.io/School-System/
 
 
-### to use the project:
-## if you want to test the json-server with the project follow this:
-- git clone https://github.com/AhmadAllan/School-System.git
-- go to the project folder and run the comman # npm install
-- install json-server: npm install -g json-server
-- after that ng serve -o
-- after that npm run server, ig that did not work use: json-server --watch db.json --port 5000
