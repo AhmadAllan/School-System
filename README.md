@@ -4,7 +4,7 @@ A project to test my skills
 ## Project steps:
 - [x] first make the project with vanilla html and css without using framework (Angular)
 - [X] write my idea to make the website functional
-- [ ] transform the project into angular
+- [x] transform the project into angular
 - [ ] use module in the project 
 
 ## What work
@@ -25,9 +25,8 @@ for now:
 => add more to-dos if needed
 
 ## Ideas for the website:
-- [ ] remove the parent page and make this information appear in Student page, it will make easier to user to understand
 - [x] in angular make the login make in it's own module and the and the others in the app module
-- [ ] use json-server package to make a mock database to see how the website will bebrhavior
+- [x] use json-server package to make a mock database to see how the website will bebrhavior
 - [ ] make it responsive
 => add more ideas if needed
 
@@ -41,7 +40,7 @@ for now:
 4- level up your skills in ui/ux
 
 ## currently work on
-- Transform the project to angular
+- sparate dashboard, parents, students, teachers and admin components into module
 # Live preview - https://ahmadallan.github.io/School-System/
 
 
