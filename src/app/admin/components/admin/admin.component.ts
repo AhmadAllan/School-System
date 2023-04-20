@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Admin } from 'src/app/interfaces/Admin';
-import { AdminService } from 'src/app/services/admin.service';
-import { CustonValidationService } from 'src/app/services/custon-validation.service';
+
+import { CustomValidationService } from 'src/app/services/custom-validation.service';
+import { AdminService } from '../../admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -25,7 +26,7 @@ export class AdminComponent {
   }
 
   
-  constructor (private formBuilder: FormBuilder,private customVadlidator: CustonValidationService, private adminService: AdminService) {}
+  constructor (private formBuilder: FormBuilder,private customVadlidator: CustomValidationService, private adminService: AdminService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

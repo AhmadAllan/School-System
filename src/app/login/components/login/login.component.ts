@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
 import { Admin } from 'src/app/interfaces/Admin';
-import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ export class LoginComponent implements OnInit {
   isUserCorrect!: boolean;
   errorMessage: string = "Please fill the your info"
   admins: Admin[] = [];
-  constructor (private formBuilder: FormBuilder, private router: Router, private adminService: AdminService) {}
+  constructor (private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -24,7 +23,6 @@ export class LoginComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe()
-    this.adminService.getAdmins().subscribe(admins => this.admins = admins);
   }
 
   get emailValidation() {

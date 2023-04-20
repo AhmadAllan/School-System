@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Teacher } from 'src/app/interfaces/Teacher';
-import { TeacherService } from 'src/app/services/teacher.service';
+import { TeachersService } from '../../teachers.service';
 
 @Component({
   selector: 'app-techers',
@@ -22,7 +22,7 @@ export class TeachersComponent {
     phoneNumber: 0
   }
   
-  constructor (private formBuilder: FormBuilder, private teacherService: TeacherService) {}
+  constructor (private formBuilder: FormBuilder, private teachersService: TeachersService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -56,7 +56,7 @@ export class TeachersComponent {
         ],
       ],
     });
-    this.teacherService.getTeachers().subscribe(teachers => this.teachers = teachers);
+    this.teachersService.getTeachers().subscribe(teachers => this.teachers = teachers);
   }
 
   get firstNameValid(){
@@ -107,7 +107,7 @@ export class TeachersComponent {
 
     
     if(this.form.valid){
-      this.teacherService.addTeacher(this.teacher).subscribe()
+      this.teachersService.addTeacher(this.teacher).subscribe()
       alert('teacher added successfully');
       this.isVisiable = false;
       this.form.reset();
@@ -118,6 +118,6 @@ export class TeachersComponent {
   }
 
   deleteTeacher(teacher: Teacher) {
-    this.teacherService.deleteTeacher(teacher).subscribe(() => this.teachers = this.teachers.filter(t => t.id !== teacher.id))   
+    this.teachersService.deleteTeacher(teacher).subscribe(() => this.teachers = this.teachers.filter(t => t.id !== teacher.id))   
   }
 }

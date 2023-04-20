@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Parent } from 'src/app/interfaces/Parent';
-import { ParentService } from 'src/app/services/parent.service';
+import { ParentsService } from '../../parents.service';
+
 
 @Component({
   selector: 'app-parents',
@@ -20,7 +21,7 @@ export class ParentsComponent {
     address: ''
   } 
   
-  constructor (private formBuilder: FormBuilder, private parentService: ParentService) {}
+  constructor (private formBuilder: FormBuilder, private parentService: ParentsService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

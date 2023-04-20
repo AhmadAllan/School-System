@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { AdminModule } from './admin.module';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable} from 'rxjs';
 import { Admin } from '../interfaces/Admin';
-
+ 
 const httpOptions = {
   headers: new HttpHeaders ({
     'Contant-Type': 'application/json'
@@ -10,7 +11,7 @@ const httpOptions = {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
   private apiUrl: string = 'http://localhost:5000/admins'
@@ -22,6 +23,7 @@ export class AdminService {
     return this.http.get<Admin[]>(this.apiUrl);
   }
 
+  //add admin to db.json
   addAdmin(admin: Admin): Observable<Admin> {
     return this.http.post<Admin>(this.apiUrl, admin, httpOptions);
   }

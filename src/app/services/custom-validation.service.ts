@@ -4,7 +4,7 @@ import { FormGroup } from "@angular/forms";
 @Injectable({
   providedIn: 'root'
 })
-export class CustonValidationService {
+export class CustomValidationService {
   passwordMatchValidator(password: string, passwordConfirm: string) {
     return (formGroup: FormGroup) => {
       const passwordControl = formGroup.controls[password];

@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ParentService {
+export class ParentsService {
   private apiUrl: string = 'http://localhost:5000/parents'
 
   constructor(private http: HttpClient) { }

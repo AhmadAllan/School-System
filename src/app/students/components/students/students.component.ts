@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Student } from 'src/app/interfaces/Student';
-import { StudentsService } from 'src/app/services/students.service';
+import { StudentsService } from '../../students.service';
 
 @Component({
   selector: 'app-students',
@@ -20,7 +20,7 @@ export class StudentsComponent {
     class: ''
   }
   
-  constructor (private formBuilder: FormBuilder, private studentService: StudentsService) {}
+  constructor (private formBuilder: FormBuilder, private studentsService: StudentsService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -41,7 +41,7 @@ export class StudentsComponent {
         ],
       ]
     });
-    this.studentService.getStudents().subscribe(students => this.students = students)
+    this.studentsService.getStudents().subscribe(students => this.students = students)
   }
 
   get firstNameValid(){
@@ -79,7 +79,7 @@ export class StudentsComponent {
 
     
     if(this.form.valid){
-      this.studentService.addStudent(this.student).subscribe()
+      this.studentsService.addStudent(this.student).subscribe()
       alert('student added successfully');
       this.isVisiable = false;
       this.form.reset();
@@ -90,6 +90,6 @@ export class StudentsComponent {
   }
 
   deleteStudent(student: Student) {
-    this.studentService.deleteStudent(student).subscribe(() => this.students = this.students.filter(t => t.id !== student.id))   
+    this.studentsService.deleteStudent(student).subscribe(() => this.students = this.students.filter(t => t.id !== student.id))   
   }
 }

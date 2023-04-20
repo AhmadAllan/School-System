@@ -9,11 +9,11 @@ const httpOptions = {
   })
 }
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class TeacherService {
-
+export class TeachersService {
   private apiUrl: string = 'http://localhost:5000/teachers'
 
   constructor(private http: HttpClient) { }

@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './components/admin/admin.component';
-
+import { AdminService } from './admin.service';
 
 @NgModule({
   declarations: [
@@ -14,6 +14,6 @@ import { AdminComponent } from './components/admin/admin.component';
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule
-  ]
+  ],
 })
 export class AdminModule { }
