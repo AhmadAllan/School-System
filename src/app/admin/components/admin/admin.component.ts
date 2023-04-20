@@ -1,5 +1,5 @@
-import { AfterViewChecked, Component, DoCheck, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Admin } from 'src/app/interfaces/Admin';
 import { AdminService } from 'src/app/services/admin.service';
 import { CustonValidationService } from 'src/app/services/custon-validation.service';
@@ -9,7 +9,7 @@ import { CustonValidationService } from 'src/app/services/custon-validation.serv
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent {
   isVisiable: boolean = false;
   isSubmitted: boolean = false;
   form!: FormGroup;

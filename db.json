@@ -19,7 +19,24 @@
       "lastName": "allan",
       "grade": "10",
       "class": "a"
+    },
+    {
+      "firstName": "ali",
+      "lastName": "khild",
+      "grade": "10",
+      "class": "a",
+      "id": 2
     }
   ],
-  "teachers": []
+  "teachers": [
+    {
+      "firstName": "ahmad",
+      "lastName": "allan",
+      "email": "root@root",
+      "class": "A",
+      "material": "C++",
+      "phoneNumber": "0781015580",
+      "id": 1
+    }
+  ]
 }

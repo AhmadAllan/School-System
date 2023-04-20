@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Teacher } from 'src/app/interfaces/Teacher';
 import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
-  selector: 'app-teachers',
+  selector: 'app-techers',
   templateUrl: './teachers.component.html',
   styleUrls: ['./teachers.component.css']
 })

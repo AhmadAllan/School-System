@@ -4,14 +4,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
+import { DashboardModule } from './dashboard/dashboard.module';
+import { ParentsModule } from './parents/parents.module';
+import { TeachersModule } from './teachers/teachers.module';
+import { StudentsModule } from './students/students.module';
+import { AdminModule } from './admin/admin.module';
+
 import { AppComponent } from './app.component';
-import { NavComponent } from './components/nav/nav.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ParentsComponent } from './components/parents/parents.component';
-import { TeachersComponent } from './components/teachers/teachers.component';
-import { StudentsComponent } from './components/students/students.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { NavComponent } from './shared/nav/nav.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { LoginModule } from './login/login.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
@@ -22,12 +23,7 @@ import { ContactComponent } from './components/contact/contact.component';
     AppComponent,
     NavComponent,
     FooterComponent,
-    DashboardComponent,
-    ParentsComponent,
-    TeachersComponent,
-    StudentsComponent,
-    AdminComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +32,12 @@ import { ContactComponent } from './components/contact/contact.component';
     AppRoutingModule,
     LoginModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    DashboardModule,
+    ParentsModule,
+    TeachersModule,
+    StudentsModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

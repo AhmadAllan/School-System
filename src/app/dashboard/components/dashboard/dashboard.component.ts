@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,4 +6,5 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+
 }

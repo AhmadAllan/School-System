@@ -1,6 +1,5 @@
-import { Token } from '@angular/compiler';
-import { AfterContentChecked, AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { NavigationEnd, Router, RouterEvent } from '@angular/router';
+import { AfterContentChecked, Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',

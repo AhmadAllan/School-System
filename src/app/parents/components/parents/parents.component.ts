@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Parent } from 'src/app/interfaces/Parent';
 import { ParentService } from 'src/app/services/parent.service';
 
