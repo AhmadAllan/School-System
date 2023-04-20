@@ -12,7 +12,7 @@ A project to test my skills
 - [x] first make the project with vanilla html and css without using framework (Angular)
 - [X] write my idea to make the website functional
 - [x] transform the project into angular
-- [ ] use module in the project 
+- [x] use module in the project 
 
 ## What work
 for now:
@@ -43,7 +43,7 @@ for now:
 4- level up your skills in ui/ux
 
 ## currently work on
-- sparate dashboard, parents, students, teachers and admin components into module
+- reviewing the project
 # Live preview - https://ahmadallan.github.io/School-System/
 
 
