@@ -67,7 +67,7 @@ th img {
 
 /* fieldset */
 fieldset {
-    width: 90%;
+    width: fit-content;
     height: fit-content;
     display: none;
     border: 3px solid var(--border-color);
