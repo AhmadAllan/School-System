@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'parents', loadChildren: () => import('./parents/parents.module').then(m => m.ParentsModule)},
   {path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule)},
   {path: 'teachers', loadChildren: () => import('./teachers/teachers.module').then(m => m.TeachersModule)},
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
   {path: 'contact-us', component: ContactComponent}
 
 ];

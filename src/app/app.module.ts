@@ -33,11 +33,6 @@ import { ContactComponent } from './components/contact/contact.component';
     LoginModule,
     FontAwesomeModule,
     HttpClientModule,
-    DashboardModule,
-    ParentsModule,
-    TeachersModule,
-    StudentsModule,
-    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
