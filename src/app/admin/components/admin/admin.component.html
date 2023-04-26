@@ -33,7 +33,7 @@
 
     <button class="btnConfig" type="button" (click)="onToggle()">+ Add</button>
 
-    <fieldset class="add" id="add" *ngIf="isVisiable" [ngStyle]="{'display': 'grid'}">
+    <fieldset class="add" id="add" *ngIf="isVisiable" [ngStyle]="{'display': 'flex'}">
         <legend>Add person</legend>
         <form class="formBox" [formGroup]="form">
             <p class="error-message" style="font-size: large;" *ngIf="isSubmitted">Please fill the the form</p>

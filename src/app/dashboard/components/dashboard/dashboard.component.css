@@ -22,7 +22,7 @@ main{
 .card {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: max(25vw, 180px);
     border: 2px solid var(--border-color);
     border-top: 4px solid var(--secondary-color);
     border-radius: 5px;

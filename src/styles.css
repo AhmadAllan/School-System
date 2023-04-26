@@ -30,7 +30,7 @@ main{
 }
 /* table style */
 table {
-    width: 100%;
+    width: 1200px;
     margin-left: 10px;
 }
 
@@ -39,6 +39,7 @@ table, tr, th, td {
     border-collapse: collapse;
     color: var(--table-text-color);
 }
+tr:nth-child(even){background-color: #f2f2f2}
 
 thead {
     background-color: var(--table-row-color);
@@ -58,12 +59,17 @@ th img {
     width: 20px;
 }
 
+@media only screen and (max-width: 700px){
+    table {
+        overflow-x: auto;
+    }
+}
+
 /* fieldset */
 fieldset {
     width: 90%;
     height: fit-content;
     display: none;
-    grid: 1fr / 3fr 1fr;
     border: 3px solid var(--border-color);
     color: var(--primary-color);
     margin-top: 20px;
@@ -86,9 +92,20 @@ fieldset legend {
     grid-row-start: 2;
 }
 
+@media only screen and (max-width: 700px){
+    .add {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .formBox {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 .config {
+    margin-top: 10px;
     display: grid;
     grid-column-start: 2;
     grid-column-end: 3;

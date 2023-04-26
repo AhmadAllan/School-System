@@ -11,7 +11,22 @@
       "id": 1
     }
   ],
-  "parents": [],
+  "parents": [
+    {
+      "firstName": "as",
+      "lastName": "as",
+      "phoneNumber": "0781015580",
+      "address": "as",
+      "id": 1
+    },
+    {
+      "firstName": "as",
+      "lastName": "as",
+      "phoneNumber": "0781015580",
+      "address": "as",
+      "id": 2
+    }
+  ],
   "students": [
     {
       "id": 1,
